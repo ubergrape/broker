@@ -8,11 +8,17 @@ small broker for events
 
 ## Installation
 
-    $ npm install broker
     $ component install Swatinem/broker
 
 ## Usage
 
+### broker(obj1, event, obj2, method)
+
+Simply calls `method` on `obj2` when `event` on `obj1` is fired.
+
+### broker.pass(obj1, event1, obj2, event2)
+
+Passes `event1` from `obj1` on as `event2` on `obj2`.
 
 ## License
 
