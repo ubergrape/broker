@@ -1,0 +1,14 @@
+{
+  "name": "broker",
+  "repo": "Swatinem/broker",
+  "version": "0.0.1",
+  "description": "small broker for events",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "dependencies": {
+  },
+  "license": "LGPLv3"
+}
