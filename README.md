@@ -12,13 +12,16 @@ small broker for events
 
 ## Usage
 
-### broker(obj1, event, obj2, method)
+### broker(emitters, event, receivers, method)
 
-Simply calls `method` on `obj2` when `event` on `obj1` is fired.
+Simply calls `method` on `receivers` when `event` on `emitters` is fired.
+Both `emitters` and `receivers` can be arrays.
 
-### broker.pass(obj1, event1, obj2, event2)
+### broker.pass(emitter, onevent, receiver, [emitevent])
 
-Passes `event1` from `obj1` on as `event2` on `obj2`.
+Passes `onevent` from `emitter` on as `emitevent` on `receiver`.
+When no `emitevent` is given, it defaults to the same as `onevent`.
+Both `emitters` and `receivers` can be arrays.
 
 ## License
 

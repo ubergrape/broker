@@ -2,7 +2,7 @@
   "name": "broker",
   "private": true,
   "description": "small broker for events",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [],
   "main": "./index",
   "maintainers": [

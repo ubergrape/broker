@@ -4,24 +4,36 @@
 var exports = module.exports = broker;
 exports.pass = pass;
 
-function broker(obj1, ev, obj2, fn) {
-	if (typeof fn === 'string') {
-		fn = obj2[fn];
-	}
+function broker(emitter, ev, receiver, fn) {
+	var calls = (Array.isArray(receiver) ? receiver : [receiver]).map(function (obj) {
+		var boundfn = typeof fn === 'string' ? obj[fn] : fn;
+		return [obj, boundfn];
+	});
 	function cb() {
-		fn.apply(obj2, arguments);
+		var args = arguments;
+		calls.forEach(function (obj) {
+			obj[1].apply(obj[0], args);
+		});
 	}
-	obj1.on(ev, cb);
+	(Array.isArray(emitter) ? emitter : [emitter]).forEach(function (emitter) {
+		emitter.on(ev, cb);
+	});
 	return cb;
 }
 
 var slice = [].slice;
-function pass(obj1, ev1, obj2, ev2) {
+function pass(emitter, onevent, receiver, emitevent) {
+	emitevent = emitevent || onevent;
+	receiver = Array.isArray(receiver) ? receiver : [receiver];
 	function cb() {
-		var args = slice.call(arguments);
-		obj2.emit.apply(obj2, [ev2].concat(args));
+		var args = [emitevent].concat(slice.call(arguments));
+		receiver.forEach(function (receiver) {
+			receiver.emit.apply(receiver, args);
+		});
 	}
-	obj1.on(ev1, cb);
+	(Array.isArray(emitter) ? emitter : [emitter]).forEach(function (emitter) {
+		emitter.on(onevent, cb);
+	});
 	return cb;
 }
 
