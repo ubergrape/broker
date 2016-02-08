@@ -1,6 +1,6 @@
 {
   "name": "broker",
-  "repo": "Swatinem/broker",
+  "repo": "ubergrape/broker",
   "version": "0.0.2",
   "description": "small broker for events",
   "keywords": [],

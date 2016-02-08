@@ -20,6 +20,6 @@
   "scripts": {
     "test": "make test-coveralls"
   },
-  "repository": "git://github.com/Swatinem/broker.git",
   "license": "LGPLv3"
+  "repository": "git://github.com/ubergrape/broker.git",
 }

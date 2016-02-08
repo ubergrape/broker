@@ -8,7 +8,7 @@ small broker for events
 
 ## Installation
 
-    $ component install Swatinem/broker
+    $ component install ubergrape/broker
 
 ## Usage
 
